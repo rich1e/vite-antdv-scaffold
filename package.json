@@ -1,0 +1,86 @@
+{
+  "name": "vite-scaffold",
+  "version": "0.0.0",
+  "author": {
+    "name": "rich1e",
+    "email": "yuqigong@outlook.com",
+    "url": "https://github.com/rich1e"
+  },
+  "scripts": {
+    "dev": "vite",
+    "dev:mock": "vite --mode development",
+    "dev:test": "vite --mode testing",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "report": "cross-env REPORT=true pnpm build",
+    "prepare": "husky install",
+    "lint:tsc": "vue-tsc --noEmit",
+    "lint:lint-staged": "lint-staged",
+    "version": "conventional-changelog -p gitmoji-config -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
+    "postversion": "git push --follow-tags origin main",
+    "release": "pnpm version patch && pnpm postversion"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^0.2.4",
+    "axios": "^0.24.0",
+    "element-plus": "^1.2.0-beta.6",
+    "vue": "^3.2.26",
+    "vue-router": "^4.0.12"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^15.0.0",
+    "@types/rollup-plugin-visualizer": "^4.2.1",
+    "@typescript-eslint/eslint-plugin": "^5.8.0",
+    "@typescript-eslint/parser": "^5.8.0",
+    "@vitejs/plugin-vue": "^2.0.1",
+    "@vitejs/plugin-vue-jsx": "^1.3.3",
+    "commitizen": "^4.2.4",
+    "commitlint-config-gitmoji": "^2.2.5",
+    "conventional-changelog-cli": "^2.2.2",
+    "cross-env": "^7.0.3",
+    "cz-customizable": "^6.3.0",
+    "eslint": "^8.5.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^8.2.0",
+    "husky": "^7.0.4",
+    "less": "^4.1.2",
+    "lint-staged": "^12.1.3",
+    "mockjs": "^1.1.0",
+    "prettier": "^2.5.1",
+    "rollup-plugin-visualizer": "^5.5.2",
+    "typescript": "^4.5.4",
+    "unplugin-vue-components": "^0.17.9",
+    "vite": "^2.7.6",
+    "vite-plugin-mock": "^2.9.6",
+    "vue-eslint-parser": "^8.0.1",
+    "vue-tsc": "^0.30.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rich1e/vite-scaffold.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rich1e/vite-scaffold/issues"
+  },
+  "homepage": "https://github.com/rich1e/vite-scaffold",
+  "engines": {
+    "node": "^12 || >=14"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": ".cz-config.js"
+    }
+  },
+  "lint-staged": {
+    "*.{vue,js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --config .prettierrc.js --write",
+      "git add"
+    ]
+  }
+}
