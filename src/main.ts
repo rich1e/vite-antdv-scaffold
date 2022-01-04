@@ -10,6 +10,11 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import { router, setupRouter } from '@/routers/index';
 
+/**
+ * @see https://github.com/necolas/normalize.css/
+ */
+import 'normalize.css/normalize.css';
+
 const app = createApp(App);
 
 // Set Router

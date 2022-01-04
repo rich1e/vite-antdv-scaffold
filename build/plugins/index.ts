@@ -4,6 +4,7 @@ import type { Plugin } from 'vite';
 // Plugins
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
+import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import { viteMockServe } from 'vite-plugin-mock';
@@ -37,9 +38,37 @@ export function createVitePlugins({ command, mode }: ConfigEnv) {
    * @see https://juejin.cn/post/6976558626425028645
    */
   vitePlugins.push(
+    AutoImport({
+      // targets to transform
+      include: [
+        /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
+        /\.vue$/,
+        /\.vue\?vue/, // .vue
+        /\.md$/, // .md
+      ],
+
+      // global imports to register
+      imports: [
+        // presets
+        'vue',
+        'vue-router',
+        // custom
+        {
+          axios: [
+            // default imports
+            ['default', 'axios'], // import { default as axios } from 'axios',
+          ],
+        },
+      ],
+
+      // custom resolvers
+      // see https://github.com/antfu/unplugin-auto-import/pull/23/
+      resolvers: [ElementPlusResolver()],
+      dts: true, // enabled by default if `typescript` is installed
+    }),
     Components({
       resolvers: [ElementPlusResolver()],
-      // dts: true, // enabled by default if `typescript` is installed
+      dts: true, // enabled by default if `typescript` is installed
     }),
   );
 
