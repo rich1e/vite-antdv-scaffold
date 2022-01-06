@@ -1,3 +1,6 @@
+/**
+ * @description response 转换函数
+ */
 import { IAxiosResponse } from './index';
 
 export interface IResponseTransform<T = any> {
@@ -22,8 +25,10 @@ export const responseTransformHandler = (
     status: false,
   };
 
+  const successCode = [200, 2000];
+
   return new Promise((resolve, reject) => {
-    return code === 200
+    return successCode.includes(code)
       ? resolve(Object.assign({}, defaultResult, { status: true }))
       : reject(Object.assign({}, defaultResult, { status: false }));
   });

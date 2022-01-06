@@ -32,7 +32,7 @@
 import { UserConfigExport, ConfigEnv } from 'vite';
 import path from 'path';
 
-// config
+// Plugins
 import { createVitePlugins } from './build/plugins';
 
 // https://vitejs.dev/config/
@@ -43,13 +43,13 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
       host: 'localhost',
       port: 3388,
       open: true,
-      proxy: {
-        '/api': {
-          target: 'http://10.217.116.221/',
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, ''),
-        },
-      },
+      // proxy: {
+      //   '/api': {
+      //     target: 'http://10.217.116.221/',
+      //     changeOrigin: true,
+      //     rewrite: (path) => path.replace(/^\/api/, ''),
+      //   },
+      // },
     },
     resolve: {
       alias: {
@@ -57,10 +57,22 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
       },
     },
     plugins: createVitePlugins({ command, mode }),
+
+    /**
+     * @see https://github.com/nuxt/vite/issues/198#issuecomment-1001021978
+     */
+    optimizeDeps: {
+      entries: ['./src/App.vue'],
+    },
+
     css: {
       preprocessorOptions: {
-        less: {
-          javascriptEnabled: true,
+        // less: {
+        //   javascriptEnabled: true,
+        // },
+        // define global scss variable
+        scss: {
+          additionalData: `@import "@/styles/variables.scss";`,
         },
       },
     },

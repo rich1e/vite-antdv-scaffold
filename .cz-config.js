@@ -1,7 +1,6 @@
 /**
  * @see https://github.com/leonardoanalista/cz-customizable/blob/master/cz-config-EXAMPLE.js
  * @see https://github.com/Landish/cz-gitmoji
- * @see https://marketplace.visualstudio.com/items?itemName=KnisterPeter.vscode-commitizen
  */
 module.exports = {
   // type 类型（定义之后，可通过上下键选择）

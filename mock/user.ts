@@ -25,6 +25,53 @@ export default [
     },
   },
   {
+    url: '/api/ty-user/user/loginValid',
+    method: 'post',
+    timeout: 1000,
+    status: 200,
+    response: {
+      code: 2000,
+      message: 'OK',
+      msg: '操作成功!',
+      flag: true,
+      data: {
+        jwtToken: 'mockeyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9',
+        username: 'admin',
+        email: '',
+      },
+    },
+  },
+  {
+    url: '/api/ty-user/user/getUserInfo',
+    method: 'post',
+    timeout: 1000,
+    status: 200,
+    response: {
+      code: 2000,
+      message: 'OK',
+      msg: '操作成功!',
+      flag: true,
+      data: {
+        exp: 1641641252,
+        iat: 1641382052,
+        username: 'admin',
+      },
+    },
+  },
+  {
+    url: '/api/ty-user/user/loginOut',
+    method: 'post',
+    timeout: 1000,
+    status: 200,
+    response: {
+      code: 2000,
+      message: 'OK',
+      msg: '操作成功!',
+      flag: true,
+      data: {},
+    },
+  },
+  {
     url: '/api/menu',
     method: 'post',
     timeout: 1000,

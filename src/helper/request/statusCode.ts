@@ -1,4 +1,5 @@
 /**
+ * @description 状态码
  * @see https://www.angularjswiki.com/angular/how-to-convert-a-string-to-enum-in-typescript-or-angular/
  * @see https://zhuanlan.zhihu.com/p/373653890
  * @see https://juejin.cn/post/7023238396931735583
@@ -30,9 +31,10 @@ enum StatusCode {
 }
 
 /**
+ * @description 获取StatusCodeInfo详细信息
  * @see https://dev.to/joaozitopolo/typescript-enum-to-array-42jg
- * @param code
- * @returns
+ * @param code 服务端Code
+ * @returns 返回StatusCodeInfo对象
  */
 export const getStatusCodeInfo = (
   code: number,
@@ -48,9 +50,9 @@ export const getStatusCodeInfo = (
 };
 
 /**
- * @function 获取code详细信息
- * @param code 服务端code
- * @returns 返回服务code信息
+ * @description 获取StatusCodeMessage详细信息
+ * @param code 服务端Code
+ * @returns 返回StatusCodeMessage信息
  */
 export const getStatusCodeMessage = (code: number): string => {
   const enumVal = (

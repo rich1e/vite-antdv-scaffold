@@ -1,5 +1,5 @@
 /**
- * @see https://www.cnblogs.com/boyyangD/articles/15489402.html
+ * @description 客户端缓存方法
  * @see https://blog.csdn.net/JackieDYH/article/details/113372460
  * @see http://myunlessor.github.io/blog/2016/08/15/cache-javascript-code-to-localstorage/
  * @see https://juejin.cn/post/6994990484980498462

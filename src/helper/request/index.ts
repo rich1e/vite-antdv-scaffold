@@ -10,6 +10,11 @@ import { netWorkExceptionHandler } from './exceptionHandler';
 import { responseTransformHandler } from './responseTransformHandler';
 import { getStatusCodeInfo } from './statusCode';
 
+/**
+ * useAsync Hook
+ * @see https://juejin.cn/post/7048214402121596959
+ */
+
 interface HttpClient {
   (config: AxiosRequestConfig): AxiosPromise;
 

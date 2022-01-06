@@ -1,8 +1,8 @@
-# Vite Antdv Scaffold
+# Vite Scaffold
 
 ## Introduction
 
-Vite Antdv Scaffold is a free and open source front-end template. Using the latest `vue3`, `vite2`, `TypeScript` and other mainstream technology development.
+Vite Scaffold is a free and open source front-end template. Using the latest `vue3`, `vite2`, `TypeScript` and other mainstream technology development.
 
 ## Feature
 
@@ -11,7 +11,7 @@ Vite Antdv Scaffold is a free and open source front-end template. Using the late
 - [Vite](https://cn.vitejs.dev/)
 - [Pnpm](https://pnpm.io/)
 - [JSX/TSX Syntax](https://github.com/vuejs/jsx-next/blob/dev/packages/babel-plugin-jsx/README-zh_CN.md)
-- [Ant Design Vue](https://next.antdv.com/components/overview/)
+- [Element Plus - A Vue.js 3 UI library](https://element-plus.org/zh-CN/)
 - [ESLint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
 
@@ -119,6 +119,22 @@ pnpm lint:lint-staged
   }
 }
 ```
+
+## FQA
+
+### Error: Failed to fetch gitmoji JSON
+
+if you meet the below error. It means that you failed to fetch the gitmojis.json file.
+
+```
+Failed to fetch gitmoji JSON, please refer to https://github.com/arvinxx/gitmoji-commit-workflow/tree/master/packages/plugin#fetch-error for help.
+```
+
+the solution is that manual downloads the [gitmoji.json](https://raw.githubusercontent.com/carloscuesta/gitmoji/master/src/data/gitmojis.json) file and add it to node_modules/commitlint-plugin-gitmoji/lib folder.
+
+---
+
+[Fetch Error](https://github.com/arvinxx/gitmoji-commit-workflow/tree/master/packages/commitlint-plugin#fetch-error)
 
 ## License
 

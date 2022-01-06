@@ -8,6 +8,9 @@ import Components from 'unplugin-vue-components/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import { viteMockServe } from 'vite-plugin-mock';
 import visualizer from 'rollup-plugin-visualizer';
+import viteSvgIcons from 'vite-plugin-svg-icons';
+
+import path from 'path';
 
 export function createVitePlugins({ command, mode }: ConfigEnv) {
   const localEnabled = () => {
@@ -53,6 +56,19 @@ export function createVitePlugins({ command, mode }: ConfigEnv) {
           brotliSize: true,
         }) as Plugin)
       : [],
+  );
+
+  // vite-plugin-svg-icons
+  vitePlugins.push(
+    viteSvgIcons({
+      // 指定需要缓存的图标文件夹
+      iconDirs: [
+        path.resolve(process.cwd(), 'src/icons/general'),
+        path.resolve(process.cwd(), 'src/icons/navbar'),
+      ],
+      // 指定symbolId格式
+      symbolId: 'icon-[dir]-[name]',
+    }),
   );
 
   return vitePlugins;

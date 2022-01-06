@@ -1,5 +1,6 @@
 import httpClient from '@/helper/request';
 import { IResponseTransform } from '@/helper/request/responseTransformHandler';
+import { ObjTy } from '~/common';
 
 /**
  * @enum
@@ -90,4 +91,24 @@ export const menuInfo = (
   data: MenuRequestType,
 ): Promise<IResponseTransform<MenuResponseType>> => {
   return httpClient.post(Api.Menu, data);
+};
+
+/*******************************************************************/
+
+enum Api2 {
+  loginReq = '/ty-user/user/loginValid',
+  getInfoReq = '/ty-user/user/getUserInfo',
+  logoutReq = '/ty-user/user/loginOut',
+}
+
+export const loginReq = (data: ObjTy) => {
+  return httpClient.post(Api2.loginReq, data);
+};
+
+export const getInfoReq = () => {
+  return httpClient.post(Api2.getInfoReq);
+};
+
+export const logoutReq = () => {
+  return httpClient.post(Api2.logoutReq);
 };

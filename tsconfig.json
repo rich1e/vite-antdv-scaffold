@@ -7,6 +7,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "isolatedModules": true,
+    "noImplicitAny": false,
     "skipLibCheck": true,
     "strict": true,
     "jsx": "preserve",
@@ -16,8 +17,20 @@
     "lib": ["esnext", "dom"],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "~/*": ["types/*"],
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "build/**/*.ts", "types/env.d.ts"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "build/**/*.ts",
+    "types/**/*.ts",
+    "types/**/*.d.ts",
+    "mock/**/*.ts",
+    "vite.config.ts"
+  ],
+  "exclude": ["node_modules", "dist", "**/*.js"]
 }

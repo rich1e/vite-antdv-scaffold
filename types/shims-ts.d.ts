@@ -1,10 +1,5 @@
-/*
- * @Author: your name
- * @Date: 2021-08-17 15:08:36
- * @LastEditTime: 2021-08-17 15:09:46
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: /openpl/typings/shims-ts.d.ts
+/**
+ * @description 文件类型
  */
 declare module '*.vue';
 declare module '*.tsx';
@@ -15,3 +10,6 @@ declare module '*.png';
 declare module '*.jpg';
 declare module '*.jpeg';
 declare module '*.gif';
+declare module '*.svg';
+declare module 'path-to-regexp';
+declare module 'nprogress';

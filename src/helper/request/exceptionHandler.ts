@@ -1,3 +1,6 @@
+/**
+ * @deprecated 错误异常处理函数
+ */
 import type { AxiosError, AxiosResponse } from 'axios';
 import { getStatusCodeInfo } from './statusCode';
 

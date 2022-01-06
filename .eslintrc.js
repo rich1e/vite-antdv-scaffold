@@ -1,3 +1,6 @@
+/**
+ * @see https://eslint.vuejs.org/
+ */
 module.exports = {
   env: {
     browser: true,
@@ -5,7 +8,6 @@ module.exports = {
     'vue/setup-compiler-macros': true,
   },
   extends: [
-    // https://eslint.vuejs.org/
     'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
     'prettier',
@@ -25,5 +27,16 @@ module.exports = {
   rules: {
     'vue/script-setup-uses-vars': 'error',
     '@typescript-eslint/no-explicit-any': 'off',
+    /**
+     * @see https://stackoverflow.com/questions/67828662/how-to-enforce-script-template-and-style-tags-order-in-vue-with-linter
+     * @see https://github.com/kawamataryo/v-change-tags-order
+     * @see https://eslint.vuejs.org/rules/component-tags-order.html
+     */
+    'vue/component-tags-order': [
+      'error',
+      {
+        order: ['script', 'template', 'style'],
+      },
+    ],
   },
 };
