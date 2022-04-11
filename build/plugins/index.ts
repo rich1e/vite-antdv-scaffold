@@ -1,3 +1,9 @@
+/*
+ * @Author: rich1e
+ * @Date: 2022-04-11 14:47:51
+ * @LastEditors: rich1e
+ * @LastEditTime: 2022-04-11 14:56:55
+ */
 import { ConfigEnv } from 'vite';
 import type { Plugin } from 'vite';
 
@@ -42,7 +48,7 @@ export function createVitePlugins({ command, mode }: ConfigEnv) {
   vitePlugins.push(
     Components({
       resolvers: [ElementPlusResolver()],
-      // dts: true, // enabled by default if `typescript` is installed
+      dts: false, // enabled by default if `typescript` is installed
     }),
   );
 
