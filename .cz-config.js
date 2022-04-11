@@ -2,6 +2,7 @@
  * @see https://github.com/leonardoanalista/cz-customizable/blob/master/cz-config-EXAMPLE.js
  * @see https://github.com/Landish/cz-gitmoji
  * @see https://marketplace.visualstudio.com/items?itemName=KnisterPeter.vscode-commitizen
+ * @see https://gitmoji.dev/
  */
 module.exports = {
   // type 类型（定义之后，可通过上下键选择）
@@ -32,7 +33,7 @@ module.exports = {
     },
     {
       value: ':recycle: refactor',
-      name: '♻️ 代码重构（不包括 bug 修复、功能新增）',
+      name: '♻️  代码重构（不包括 bug 修复、功能新增）',
     },
     {
       value: ':zap: perf',
@@ -52,11 +53,11 @@ module.exports = {
     },
     {
       value: ':arrow_up: upgrade',
-      name: '⬆️ 升级依赖包',
+      name: '⬆️  升级依赖包',
     },
     {
       value: ':arrow_down: downgrade',
-      name: '⬇️ 降级依赖包',
+      name: '⬇️  降级依赖包',
     },
     {
       value: ':rocket: chore',
@@ -83,15 +84,16 @@ module.exports = {
   // scope 类型（定义之后，可通过上下键选择）
   scopes: [
     ['components', '组件相关'],
-    ['api', 'api 相关'],
-    ['config', '配置相关'],
-    ['hooks', 'hook 相关'],
-    ['utils', 'utils 相关'],
-    ['styles', '样式相关'],
-    ['deps', '项目依赖'],
-    ['auth', '对 auth 修改'],
-    ['ant-design-vue', '对 ant-design-vue 的调整'],
-    ['typescript', '完善 typescript 定义'],
+    ['api', '数据请求'],
+    ['view', '业务逻辑'],
+    ['config', '配置文件'],
+    ['router', '路由配置'],
+    ['hooks', 'hook函数'],
+    ['utils', '通用方法或辅助工具，例如: utils/helper'],
+    ['styles', 'css/sass/less 样式修改'],
+    ['deps', '项目依赖，例如: assets/public'],
+    ['build', '构建配置等，例如: assets/public'],
+    ['typescript', '完善类型定义'],
     ['other', '其他修改'],
   ].map(([value, description]) => {
     return {
