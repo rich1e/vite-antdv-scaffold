@@ -1,7 +1,7 @@
 - [ ] 富文本 - https://juejin.cn/post/6935430655761186846
 - [ ] 图形库
 - [ ] 状态管理
-- [X] Mock
-- [X] Axios
-- [X] Standard-Version
-- [ ] @ant-design/icons-vue
+- [x] Mock
+- [x] Axios
+- [x] Standard-Version
+- [ ] Element UI
