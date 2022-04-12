@@ -1,3 +1,9 @@
+/*
+ * @Author: rich1e
+ * @Date: 2022-04-11 16:55:39
+ * @LastEditors: rich1e
+ * @LastEditTime: 2022-04-12 21:10:10
+ */
 /**
  * Antdv2.x Icons 图标批量注册，动态引用
  * @see https://juejin.cn/post/6979534282649763847#heading-5
@@ -8,13 +14,15 @@
  */
 import { createApp } from 'vue';
 import App from './App.vue';
-import { router, setupRouter } from '@/routers/index';
+import { router, setupRouter } from '/@/routers/index';
+
+// 初始化样式
+import 'normalize.css';
 
 const app = createApp(App);
 
-// Set Router
+// 挂载路由
 setupRouter(app);
 
-router.isReady().then(() => {
-  app.mount('#app');
-});
+// 路由准备就绪后挂载APP实例
+router.isReady().then(() => app.mount('#app'));
