@@ -1,3 +1,9 @@
+/*
+ * @Author: rich1e
+ * @Date: 2022-04-11 16:55:39
+ * @LastEditors: rich1e
+ * @LastEditTime: 2022-04-12 20:28:19
+ */
 /**
  * vite config 配置
  * @see https://juejin.cn/post/6988704825450397709#heading-14
@@ -30,7 +36,7 @@
  * @see https://github.com/alibaba/pont
  */
 import { UserConfigExport, ConfigEnv } from 'vite';
-import path from 'path';
+import { resolve } from 'path';
 
 // config
 import { createVitePlugins } from './build/plugins';
@@ -41,7 +47,7 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
     base: '/',
     server: {
       host: 'localhost',
-      port: 3388,
+      port: 3399,
       open: true,
       proxy: {
         '/api': {
@@ -52,9 +58,16 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
       },
     },
     resolve: {
-      alias: {
-        '@': path.resolve(__dirname, 'src'),
-      },
+      alias: [
+        {
+          find: /^~/,
+          replacement: '',
+        },
+        {
+          find: '/@',
+          replacement: resolve(__dirname, 'src'),
+        },
+      ],
     },
     plugins: createVitePlugins({ command, mode }),
     css: {

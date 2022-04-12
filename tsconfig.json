@@ -1,5 +1,7 @@
 // https://www.kuxiaoxin.com/archives/9
 // https://www.tslang.cn/docs/handbook/tsconfig-json.html
+// https://jkchao.github.io/typescript-book-chinese/project/compilationContext.html#tsconfig-json
+// https://zhuanlan.zhihu.com/p/258906525
 {
   "compilerOptions": {
     "target": "esnext",
@@ -16,8 +18,18 @@
     "lib": ["esnext", "dom"],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
-    }
+      "/@/*": ["src/*"],
+      "/#/*": ["types/*"]
+    },
+    "types": ["element-plus/global"]
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "build/**/*.ts", "types/env.d.ts"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "build/*.ts",
+    "mock/*.ts",
+    "types/*.d.ts",
+    "vite.config.ts"
+  ]
 }
