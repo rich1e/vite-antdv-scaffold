@@ -1,93 +1,61 @@
-import httpClient from '@/helper/request';
-import { IResponseTransform } from '@/helper/request/responseTransformHandler';
+/*
+ * @Author: rich1e
+ * @Date: 2022-04-11 16:55:39
+ * @LastEditors: rich1e
+ * @LastEditTime: 2022-04-12 20:30:55
+ */
+import httpClient from '/@/helper/request';
+import {
+  GetPermissionRequest,
+  GetPermissionResponse,
+  GetUserRequest,
+  GetUserResponse,
+  LoginRequest,
+  LoginResponse,
+} from './models/userModel';
+import type { ResponseTransform } from '../helper/request/types';
 
 /**
- * @enum
- * @property {string} Login 登录接口路径
- * @property {string} Logout 退出接口路径
+ * @description User API
  */
 enum Api {
+  /** 登录接口路径 */
   Login = '/login',
+  /** 用户信息接口路径 */
   User = '/user',
-  Menu = '/menu',
-}
-
-/**
- * @description 登录接口请求参数
- */
-interface LoginRequestType {
-  /** 用户名 */
-  username: string;
-  /** 密码 */
-  password: string;
-}
-
-interface LoginResponseType {
-  /** 服务标识 */
-  token: string;
-  /** 时间戳 */
-  timestamp: string;
-  /** 用户ID */
-  userId: string;
+  /** 权限菜单接口路径 */
+  Permission = '/permission',
+  /** 退出接口路径 */
+  logout = 'logout',
 }
 /**
  * @description 登录信息
- * @param data 登录接口请求参数
+ * @param data 登录请求参数
  */
-export const loginInfo = (
-  data: LoginRequestType,
-): Promise<IResponseTransform<LoginResponseType>> => {
-  return httpClient.post(Api.Login, data);
+export const login = (
+  data: LoginRequest,
+): Promise<ResponseTransform<LoginResponse>> => {
+  return httpClient.post(Api.Login, data, {
+    baseURL: import.meta.env.VITE_BASE_URL,
+  });
 };
 
 /**
- * @description 用户接口请求参数
- */
-interface UserRequestType {
-  /** 用户ID */
-  userId: string;
-}
-
-interface UserResponseType {
-  permission: {
-    namespaceList: Array<string>;
-    productId: number;
-  };
-  isGod: string;
-}
-
-/**
  * @description 用户信息
- * @param data 用户接口请求参数
+ * @param data 用户请求参数
  */
-export const userInfo = (
-  data: UserRequestType,
-): Promise<IResponseTransform<UserResponseType>> => {
+export const getUser = (
+  data: GetUserRequest,
+): Promise<ResponseTransform<GetUserResponse>> => {
   return httpClient.post(Api.User, data);
 };
 
 /**
- * @description 菜单接口请求参数
+ * @description 权限菜单
+ * @param data 权限菜单请求参数
  */
-interface MenuRequestType {
-  /** 用户ID */
-  productId: number;
-}
-
-export interface MenuResponseType {
-  /** 菜单 */
-  menu: {
-    /** 空间列表 */
-    namespaceList: any[];
-  };
-}
-
-/**
- * @description 菜单信息
- * @param data 登录接口请求参数
- */
-export const menuInfo = (
-  data: MenuRequestType,
-): Promise<IResponseTransform<MenuResponseType>> => {
-  return httpClient.post(Api.Menu, data);
+export const getPermission = (
+  data: GetPermissionRequest,
+): Promise<ResponseTransform<GetPermissionResponse>> => {
+  return httpClient.post(Api.Permission, data);
 };
