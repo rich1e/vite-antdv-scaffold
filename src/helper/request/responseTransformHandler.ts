@@ -1,13 +1,8 @@
 /**
  * @description response 转换函数
  */
-import { IAxiosResponse } from './index';
 
-export interface IResponseTransform<T = any> {
-  status: number | boolean;
-  message?: string;
-  data: T;
-}
+import type { AxiosResponseExtends, ResponseTransform } from './types';
 
 /**
  * @function response业务逻辑处理
@@ -16,8 +11,8 @@ export interface IResponseTransform<T = any> {
  * @description 翻译response的业务错误码，并将处理结果以一个Promise对象返回
  */
 export const responseTransformHandler = (
-  response: IAxiosResponse,
-): Promise<IResponseTransform> => {
+  response: AxiosResponseExtends,
+): Promise<ResponseTransform> => {
   const { data, code, message } = response;
   const defaultResult = {
     data,

@@ -38,6 +38,8 @@
  * @see https://www.cnblogs.com/Wayou/p/elegant_async_await.html
  * @see https://cnodejs.org/topic/5a6857b89288dc8153288136
  * @see https://github.com/scopsy/await-to-js/blob/master/src/await-to-js.ts
+ * @see https://blog.logrocket.com/async-await-in-typescript/
+ * @see https://dev.to/dewaldels/javascript-async-await-wrapper-22ao
  */
 // export const awaitWrapper = <T, U = Error>(
 //   promise: Promise<T>,
