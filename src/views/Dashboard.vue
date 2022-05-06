@@ -10,9 +10,35 @@
   };
 </script>
 <script lang="ts" setup>
-  const pageName = '工作台';
+  import { WorkBench } from '/@/layouts/Workbench';
+  const pageName = '工作台1';
 </script>
 <template>
-  <div>{{ pageName }}</div>
-  <div>Hello World!</div>
+  <WorkBench>
+    {{ pageName }}
+  </WorkBench>
 </template>
+<style lang="scss" scoped>
+  .vs-layout {
+    width: 100%;
+    height: 100%;
+
+    &__side {
+      width: 200px;
+      height: 100%;
+    }
+
+    &__container {
+      width: 100%;
+      height: 100%;
+    }
+
+    &__header {
+      height: 40px;
+    }
+
+    &__main {
+      position: relative;
+    }
+  }
+</style>
