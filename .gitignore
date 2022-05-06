@@ -3,6 +3,8 @@ node_modules
 dist
 dist-ssr
 *.local
+.pnpm-store
+.devcontainer
 
 # Log files
 npm-debug.log*
