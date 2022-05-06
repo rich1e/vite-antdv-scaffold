@@ -14,6 +14,7 @@
     "jsx": "preserve",
     "sourceMap": true,
     "resolveJsonModule": true,
+    "noImplicitAny": false,
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
     "baseUrl": ".",

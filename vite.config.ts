@@ -49,6 +49,9 @@ export default ({ command, mode }: ConfigEnv): UserConfigExport => {
       host: 'localhost',
       port: 3399,
       open: true,
+      watch: {
+        usePolling: true,
+      },
       proxy: {
         '/api': {
           target: 'http://10.217.116.221/',
